@@ -1,0 +1,106 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;  /* Asegura que el body ocupe toda la altura de la ventana */
+    height: 100%;       /* Asegura que el body ocupe toda la altura de la ventana */
+  }
+  
+  /* Contenedor principal */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #c8e8fd; /* Fondo general */
+    height: 100%;  /* Asegura que el contenedor principal ocupe toda la altura de la ventana */
+  }
+  
+  .register {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;  /* Limita el ancho máximo del formulario */
+  }
+  
+  h1 {
+    text-align: center;
+    color: #3f51b5;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  /* Campos de formulario */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field .mat-label {
+    font-weight: 500;
+  }
+  
+  input.mat-input-element {
+    font-size: 14px;
+  }
+  
+  /* Estilo de los errores */
+  mat-error {
+    font-size: 12px;
+    color: #d32f2f;
+  }
+  
+  /* Botones */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button.register-btn {
+    background-color: #3f51b5;
+    color: white;
+    width: 48%;
+    border-radius: 4px;
+    padding: 12px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  button.register-btn:disabled {
+    background-color: #c5cae9;
+  }
+  
+  button.register-btn:hover:enabled {
+    background-color: #303f9f;
+  }
+  
+  button.cancel-btn {
+    background-color: #e0e0e0;
+    color: #333;
+    width: 48%;
+    border-radius: 4px;
+    padding: 12px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.cancel-btn:hover {
+    background-color: #bdbdbd;
+  }
+  

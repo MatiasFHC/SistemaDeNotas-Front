@@ -1,0 +1,43 @@
+<main>
+  <div class="text">
+      <mat-card class="login-card">
+          <h1>Inicia sesión</h1>
+          <p>¡Bienvenido! Ingresa los datos para iniciar sesión</p>
+          <div class="login">
+              <form [formGroup]="loginForm" (ngSubmit)="Login()">
+                  <!-- Campo de nombre -->
+                  <mat-form-field appearance="fill" class="custom-form-field">
+                      <mat-label class="username">Nombre</mat-label>
+                      <input matInput formControlName="username" required />
+                    <!-- Validaciones -->
+                    <mat-error *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || 
+                    loginForm.get('username')?.touched)">
+                        {{ loginForm.get('username')?.hasError('required') ? 'El nombre es obligatorio' : '' }}  
+                    </mat-error>
+                  </mat-form-field>
+                  
+
+                  <!-- Campo de contraseña -->
+                  <mat-form-field appearance="fill" class="custom-form-field">
+                      <mat-label class="password">Contraseña</mat-label>
+                      <input matInput formControlName="password" required [type]="hide() ? 'password' : 'text'" />
+                      <button 
+                          mat-icon-button matSuffix type="button" (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
+                          <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+                      </button>
+                       <!-- Validaciones -->
+                        <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || 
+                        loginForm.get('password')?.touched)">
+                            {{ loginForm.get('password')?.hasError('required') ? 'La contraseña es obligatorio' : '' }}  
+                        </mat-error>
+                  </mat-form-field>
+
+                  <!-- Botón de inicio de sesión -->
+                  <button class="buttonn" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+              </form>
+
+              <p>¿No tienes una cuenta? <a [routerLink]="'/register'" class="link">Registrar</a></p>
+          </div>
+      </mat-card>
+  </div>
+</main>

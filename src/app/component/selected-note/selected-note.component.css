@@ -1,0 +1,113 @@
+/* General Layout */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Asegura que el body ocupe toda la altura */
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+/* Centrado del main */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100%;  /* Hace que el main ocupe todo el ancho disponible */
+    height: 100%; /* Hace que el main ocupe toda la altura disponible */
+    padding: 50px;
+    box-sizing: border-box; /* Para que el padding no haga que el main se desborde */
+    overflow: auto; /* Permite desplazamiento si es necesario */
+}
+
+/* Row and card styling */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Para el centro de la tarjeta */
+.col-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de la card */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px; /* Limita el ancho máximo de la tarjeta */
+    margin: 20px;
+    overflow: hidden; /* Evita que el contenido de la tarjeta se desborde */
+    box-sizing: border-box; /* Para que el padding no haga que la card se desborde */
+}
+
+/* Header Styling */
+mat-card-header {
+    background-color: #bbdefb; /* Light Blue for title background */
+    color: #333;
+    padding: 16px;
+    border-bottom: 2px solid #90caf9; /* Line separating title from description */
+    text-align: center;
+}
+
+/* Title Styling */
+mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Content Styling */
+mat-card-content {
+    padding: 16px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #e3f2fd; 
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Button Styling (inside card) */
+mat-card-actions {
+    padding: 16px;
+    text-align: center;
+    background-color: #e3f2fd; 
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 20px; /* Agrega un espacio de 20px entre los botones */
+}
+
+/* Button Styles */
+button {
+    padding: 8px 16px;
+    background-color: white;
+    color: #3f51b5;
+    border: 2px solid #3f51b5;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3f51b5;
+    color: white;
+}
+
+button:disabled {
+    background-color: #e0e0e0;
+    color: #9e9e9e;
+}

@@ -1,0 +1,33 @@
+<main class="content">
+    <!-- Header Bar -->
+    <header class="header-bar">
+      <h1>Notas</h1>
+      <div class="header-actions">
+        <!-- Add Note Button -->
+        <button mat-button (click)="AgregarNota()">Agregar Nota</button>
+        <!-- Logout Button -->
+        <button mat-menu-item (click)="CerrarSesion()">
+          <mat-icon>logout</mat-icon>
+          <span>Salir</span>
+        </button>
+      </div>
+    </header>
+  
+    <!-- Cards Section -->
+    <div class="row">
+      <div *ngFor="let nota of notas" class="col-card">
+        <div class="card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title>{{ nota.titulo }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ nota.descripcion }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a [routerLink]="['/selected-note', nota.id]" class="link">Ver</a>
+          </mat-card-actions>
+        </div>
+      </div>
+    </div>
+  </main>
+  

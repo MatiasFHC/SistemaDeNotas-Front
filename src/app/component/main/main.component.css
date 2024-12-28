@@ -1,0 +1,135 @@
+/* General Layout */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c8e8fd; /* Fondo general */
+  }
+  
+  /* Header Styling */
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  .header-bar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Card Layout */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .col-card {
+    width: 23%; /* 4 cards per row */
+    min-width: 280px; /* Ensuring cards don't get too small */
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title Styling */
+  mat-card-header {
+    background-color: #bbdefb; /* Light Blue for title background */
+    color: #333;
+    padding: 16px;
+    border-bottom: 2px solid #90caf9; /* Line separating title from description */
+    text-align: center;
+  }
+  
+  mat-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Description Styling */
+  mat-card-content {
+    padding: 16px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #e3f2fd; /* Light background color for description */
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  /* Card Actions */
+  mat-card-actions {
+    padding: 16px;
+    text-align: center;
+    background-color: #e3f2fd; /* Same background as description */
+  }
+  
+  a.link {
+    text-decoration: none;
+    color: #3f51b5;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 2px solid #3f51b5;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  a.link:hover {
+    background-color: #3f51b5;
+    color: #fff;
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 8px 16px;
+    background-color: white;  /* Fondo blanco */
+    color: #3f51b5;  /* Texto azul oscuro para que sea legible */
+    border: 2px solid #3f51b5;  /* Borde azul para destacar el botón */
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #3f51b5;  /* Fondo azul cuando pasa el mouse */
+    color: white;  /* Texto blanco en el hover */
+  }
+  
+  /* Logout Button */
+  button[mat-menu-item] {
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-icon {
+    margin-right: 8px;
+  }
+  

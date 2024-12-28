@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0; /* Elimina los márgenes predeterminados */
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    background-color: #c8e8fd; /* Fondo general */
+    width: 100%;
+    height: 100%;
+    padding: 20px; /* Asegura que no se quede pegado a los bordes */
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    align-items: center; /* Centra el texto horizontalmente */
+    height: 100%;
+    text-align: center; /* Centra el texto */
+}
+
+.text h1 {
+    font-weight: bold;
+}
+
+.text p {
+    text-align: center; /* Centra el texto */
+    line-height: 27px;
+    width: 100%;
+}
+
+.login-card {
+    background-color: #fafafa; /* Fondo claro para el card */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 40px;
+    width: 100%;
+    max-width: 500px; /* Limita el ancho máximo del card */
+    box-sizing: border-box;
+}
+
+.mat-card-header {
+    color: #FF715B; /* Color para el encabezado */
+    text-align: center;
+    padding: 10px;
+}
+
+.login {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+mat-label {
+    color: #575757;
+    font-size: 16px;
+}
+
+mat-form-field {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.custom-form-field {
+    width: 100%;
+    max-width: 500px; /* Limita el ancho */
+}
+
+.buttonn {
+    background-color: #FF715B;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 5px grey;
+    text-align: center; /* Asegura que el texto en el botón esté centrado */
+}
+
+.buttonn:hover {
+    background-color: #FF4545;
+}
+
+.link {
+    color: #FF715B;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center; /* Asegura que el enlace esté centrado */
+}
+
+.link:hover {
+    color: #FF4545;
+}

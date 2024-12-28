@@ -1,0 +1,38 @@
+<main>
+    <div class="register">
+      <h1>Crea una nota</h1>
+      <form [formGroup]="RegistrationForm" (ngSubmit)="addNota()">
+  
+      <!-- Campo del titulo -->
+        <mat-form-field appearance="outline">
+          <mat-label>Titulo</mat-label>
+          <input matInput formControlName="titulo" required />
+          <!-- Validaciones -->
+          <mat-error *ngIf="RegistrationForm.get('titulo')?.invalid && (RegistrationForm.get('titulo')?.dirty || 
+          RegistrationForm.get('titulo')?.touched)">
+          {{ RegistrationForm.get('titulo')?.hasError('required') ? 'El titulo es obligatorio' : '' }}  
+          {{ RegistrationForm.get('titulo')?.hasError('minlength') ? 'El titulo debe ser 4 caracteres minimo' : '' }}
+          </mat-error>
+        </mat-form-field>
+  
+         <!-- Campo del descripcion -->
+          <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput formControlName="descripcion" (input)="adjustHeight($event)"></textarea>
+            <input matInput formControlName="descripcion" required />
+            <!-- Validaciones -->
+            <mat-error *ngIf="RegistrationForm.get('descripcion')?.invalid && (RegistrationForm.get('descripcion')?.dirty || 
+            RegistrationForm.get('descripcion')?.touched)">
+            {{ RegistrationForm.get('descripcion')?.hasError('required') ? 'La descripcion es obligatorio' : '' }}  
+            {{ RegistrationForm.get('descripcion')?.hasError('minlength') ? 'La descripcion debe tener 3 letras minimo' : '' }}
+            </mat-error>
+          </mat-form-field>
+          
+  
+        <div class="button-group">
+        <button mat-raised-button class="register-btn" type="submit" [disabled]="RegistrationForm.invalid">Crear Nota</button>
+        <button mat-button class="cancel-btn" type="button" (click)="cancelar()">Cancelar</button>
+      </div>
+      </form>
+    </div>
+  </main>

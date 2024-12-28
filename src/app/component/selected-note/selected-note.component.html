@@ -1,0 +1,25 @@
+<main class="content">
+    <!-- Mostrar solo la card seleccionada -->
+    <div *ngIf="nota" class="row">
+      <div class="col-card">
+        <div class="card" appearance="outlined">
+          <!-- Cabecera de la tarjeta -->
+          <mat-card-header>
+            <mat-card-title>{{ nota.titulo }}</mat-card-title>
+          </mat-card-header>
+  
+          <!-- Contenido de la tarjeta -->
+          <mat-card-content>
+            <p>{{ nota.descripcion }}</p>
+          </mat-card-content>
+  
+          <!-- Botón de Volver dentro de la tarjeta -->
+          <mat-card-actions>
+            <button mat-button (click)="Volver()">Volver</button>
+            <button mat-button (click)="Borrar()">Borrar Nota</button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </div>
+  </main>
+  
