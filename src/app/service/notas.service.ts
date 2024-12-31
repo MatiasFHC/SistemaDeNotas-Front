@@ -12,7 +12,9 @@ import { Notas } from '../model/Notas';
 export class NotasService {
   public token: string | null = null;
 
+  //private apiUrl = 'https://sistemadenotas-back.onrender.com'; // URL del backend (render)
   private apiUrl = 'http://localhost:8080'; // URL del backend
+
   
   constructor(private http: HttpClient) { }
 
@@ -105,6 +107,88 @@ export class NotasService {
     return this.http.delete<any>(`${this.apiUrl}/api/BorrarNota`, { 
       // Enviar el 'id' como parámetro
       params: new HttpParams().set('id', id.toString()),
+      // Enviar el token en el encabezado para la autenticación
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
+  putTitulo(nota: Notas, titulo: string, id: number): Observable<Notas> {
+    const token = sessionStorage.getItem('token');
+    return this.http.put<Notas>(`${this.apiUrl}/api/ActualizarTitulo`, nota, { 
+      params: new HttpParams()
+        .set('Id', id.toString())
+        .set('titulo', titulo || ''),  
+      // Enviar el token en el encabezado para la autenticación
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
+  putDescripcion(nota: Notas, descripcion: string, id: number): Observable<Notas> {
+    const token = sessionStorage.getItem('token');
+    return this.http.put<Notas>(`${this.apiUrl}/api/ActualizarDescripcion`, nota, { 
+      params: new HttpParams()
+        .set('Id', id.toString())
+        .set('descripcion', descripcion || ''),  
+      // Enviar el token en el encabezado para la autenticación
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
+  uploadImage(file: File, notaid: number): Observable<any> {
+    const token = sessionStorage.getItem('token'); // Obtener el token de la sesión
+    const username = this.getUserNameByToken(); // Obtener el username desde el token
+    // Crear un FormData para enviar el archivo y otros datos
+    const formData = new FormData();
+    formData.append('image', file); // Archivo de imagen
+    formData.append('notaid', notaid.toString()); // ID de la nota como parámetro adicional
+    // Configurar los encabezados
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`, // Token de autorización
+    });
+    // Enviar la solicitud POST
+    return this.http.post(`${this.apiUrl}/api/upload`, formData, { headers });
+  }
+
+  // Servicio para obtener la imagen por nota
+  getImagenPorNota(notaid: number): Observable<any> {
+    const token = sessionStorage.getItem('token');// Obtener el token de sessionStorage
+    return this.http.get<any>(`${this.apiUrl}/api/VerImagen`, {
+      params: new HttpParams().set('notaid', notaid.toString()), 
+      // Enviar el token en el encabezado para la autenticación
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
+  //metodo para borrar una nota
+  borrarImagen(id: number): Observable<any> {
+      const token = sessionStorage.getItem('token');
+      return this.http.delete<any>(`${this.apiUrl}/api/BorrarImagen`, { 
+        // Enviar el 'id' como parámetro
+        params: new HttpParams().set('id', id.toString()),
+        // Enviar el token en el encabezado para la autenticación
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        })
+      });
+  }
+
+  //metodo para obtener el id maximo de las imagenes
+  getMaximoIdImagen(): Observable<any> {
+    const token = sessionStorage.getItem('token');// Obtener el token de sessionStorage
+    return this.http.get<any>(`${this.apiUrl}/api/imagenMaxima`, {
       // Enviar el token en el encabezado para la autenticación
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

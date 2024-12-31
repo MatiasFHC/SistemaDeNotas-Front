@@ -27,8 +27,9 @@
             {{ RegistrationForm.get('descripcion')?.hasError('minlength') ? 'La descripcion debe tener 3 letras minimo' : '' }}
             </mat-error>
           </mat-form-field>
+
+
           
-  
         <div class="button-group">
         <button mat-raised-button class="register-btn" type="submit" [disabled]="RegistrationForm.invalid">Crear Nota</button>
         <button mat-button class="cancel-btn" type="button" (click)="cancelar()">Cancelar</button>

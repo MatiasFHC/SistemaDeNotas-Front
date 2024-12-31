@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'main',  component: MainComponent},
   { path: 'register',  component: RegistrarComponent},
   { path: 'register-note',  component: AddNoteComponent},
-  { path: 'selected-note/:id', component: SelectedNoteComponent }, // Nota seleccionada
+  { path: 'selected-note/:id', component: SelectedNoteComponent }
 ];
 
 bootstrapApplication(AppComponent, {

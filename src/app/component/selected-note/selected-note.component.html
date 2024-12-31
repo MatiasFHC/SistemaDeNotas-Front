@@ -1,25 +1,59 @@
 <main class="content">
-    <!-- Mostrar solo la card seleccionada -->
-    <div *ngIf="nota" class="row">
-      <div class="col-card">
-        <div class="card" appearance="outlined">
-          <!-- Cabecera de la tarjeta -->
-          <mat-card-header>
-            <mat-card-title>{{ nota.titulo }}</mat-card-title>
-          </mat-card-header>
-  
-          <!-- Contenido de la tarjeta -->
-          <mat-card-content>
-            <p>{{ nota.descripcion }}</p>
-          </mat-card-content>
-  
-          <!-- Botón de Volver dentro de la tarjeta -->
-          <mat-card-actions>
-            <button mat-button (click)="Volver()">Volver</button>
-            <button mat-button (click)="Borrar()">Borrar Nota</button>
-          </mat-card-actions>
-        </div>
+  <div *ngIf="nota" class="centered-container">
+    <div class="col-card">
+      <div class="card" appearance="outlined">
+        <!-- Cabecera de la tarjeta -->
+        <mat-card-header>
+          <mat-card-title>
+            <mat-form-field appearance="fill" class="edit-input">
+              <input matInput [(ngModel)]="nota.titulo" (ngModelChange)="actualizarTitulo(nota)"/>
+            </mat-form-field>
+          </mat-card-title>
+        </mat-card-header>
+
+        <!-- Contenido de la tarjeta -->
+        <mat-card-content>
+          <mat-form-field appearance="fill" class="edit-input">
+            <textarea matInput [(ngModel)]="nota.descripcion" (ngModelChange)="actualizarDescripcion(nota)"></textarea>
+          </mat-form-field>
+
+          <!-- Mostrar la imagen debajo de la descripción si mostrarImagen es true -->
+            <!-- Mostrar las imágenes y el botón de eliminar -->
+            <div *ngIf="mostrarImagen && imagenesArray.length > 0">
+              <div class="imagenes-container">
+                <div *ngFor="let imagen of imagenesArray">
+                  <img [src]="imagen.direccion" alt="Imagen de la nota" class="imagen-cargada" (click)="ampliarImagen(imagen.direccion, imagen.id)" />
+                </div>
+              </div>
+            </div>
+
+          <!-- Botón para mostrar u ocultar la imagen, visible solo si hay imágenes cargadas -->
+          <button mat-button *ngIf="imagenesArray.length > 0" (click)="toggleImagen()">
+            {{ mostrarImagen ? 'Ocultar Imagen' : 'Ver Imagen' }}
+          </button>
+
+          <!-- Botón para cargar imagen -->
+          <button mat-button (click)="fileInput.click()">Cargar Imagen</button>
+          <input type="file" #fileInput (change)="onFilesSelected($event)" accept="image/*" multiple style="display: none;"/>
+        </mat-card-content>
+
+        <!-- Botones de acción dentro de la tarjeta -->
+        <mat-card-actions>
+          <button mat-button (click)="Volver()">Volver</button>
+          <button mat-button (click)="Borrar()">Borrar Nota</button>
+        </mat-card-actions>
       </div>
     </div>
-  </main>
-  
+  </div>
+
+  <!-- Modal para mostrar la imagen ampliada -->
+  <div class="image-modal" *ngIf="imagenAmpliada">
+    <div class="modal-overlay" (click)="cerrarImagenAmpliada()"></div>
+    <div class="modal-content">
+      <img [src]="imagenAmpliada" alt="Imagen ampliada" class="imagen-ampliada"/>
+      <button class="borrar-button" mat-button  (click)="idImagenAmppliada !== undefined && BorrarImagen(idImagenAmppliada)">Borrar Imagen</button>
+      <button class="close-button" mat-button  (click)="cerrarImagenAmpliada()">Volver</button>
+    </div>
+  </div>
+
+</main>

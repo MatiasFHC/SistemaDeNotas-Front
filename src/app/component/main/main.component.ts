@@ -48,7 +48,6 @@ export class MainComponent {
       }
     );
   }
-
   
   CerrarSesion(): void {
     // Limpiar todo el sessionStorage

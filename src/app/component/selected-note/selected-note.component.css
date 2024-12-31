@@ -1,98 +1,105 @@
-/* General Layout */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #c8e8fd; /* Fondo general */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Asegura que el body ocupe toda la altura */
-    overflow: hidden; /* Evita que el contenido se desborde */
+    height: 100vh; /* Ocupa toda la pantalla */
 }
-
-/* Centrado del main */
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    width: 100%;  /* Hace que el main ocupe todo el ancho disponible */
-    height: 100%; /* Hace que el main ocupe toda la altura disponible */
-    padding: 50px;
-    box-sizing: border-box; /* Para que el padding no haga que el main se desborde */
-    overflow: auto; /* Permite desplazamiento si es necesario */
+  background-color: #7791db; /* Fondo general */
 }
 
-/* Row and card styling */
-.row {
+/* Centrado de la tarjeta */
+main.content {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
-
-/* Para el centro de la tarjeta */
-.col-card {
-    width: 100%;
+  
+ /* Container for centering the card */
+ .centered-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Estilos de la card */
-.card {
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%; /* El contenedor ocupa el 100% de la altura de la pantalla */
+ }
+  
+  /* Card Layout */
+  .col-card {
+    width: 100%;
+    max-width: 800px; /* Limitar el ancho máximo de la tarjeta */
+  }
+  
+  .card {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    max-width: 500px; /* Limita el ancho máximo de la tarjeta */
-    margin: 20px;
-    overflow: hidden; /* Evita que el contenido de la tarjeta se desborde */
-    box-sizing: border-box; /* Para que el padding no haga que la card se desborde */
-}
-
-/* Header Styling */
-mat-card-header {
-    background-color: #bbdefb; /* Light Blue for title background */
+    height: 100%; /* Permite que la tarjeta ocupe todo el espacio disponible */
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title Styling */
+  mat-card-header {
+    background-color: #bbdefb; /* Azul claro para el fondo del título */
     color: #333;
     padding: 16px;
-    border-bottom: 2px solid #90caf9; /* Line separating title from description */
+    border-bottom: 2px solid #90caf9; /* Línea separadora */
     text-align: center;
-}
-
-/* Title Styling */
-mat-card-title {
-    font-size: 1.5rem;
+  }
+  
+  mat-card-title {
+    font-size: 1.25rem;
     font-weight: bold;
     margin: 0;
-}
-
-/* Content Styling */
-mat-card-content {
+  }
+  
+  /* Description Styling */
+  mat-card-content {
     padding: 16px;
     font-size: 1rem;
     color: #333;
-    background-color: #e3f2fd; 
+    background-color: #e3f2fd; /* Fondo azul claro para la descripción */
     line-height: 1.5;
-    flex-grow: 1;
-}
-
-/* Button Styling (inside card) */
-mat-card-actions {
+    flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Remove background from form fields */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  textarea {
+    resize: none; /* Desactivar el redimensionamiento */
+    height: auto; /* Deja que el textarea crezca según el contenido */
+    min-height: 250px; /* Altura mínima para el textarea */
+    flex-grow: 1; /* Permite que el campo de texto crezca con el contenido */
+  }
+  
+  /* Card Actions */
+  mat-card-actions {
     padding: 16px;
     text-align: center;
-    background-color: #e3f2fd; 
-    display: flex;
-    justify-content: center; /* Centra los botones */
-    gap: 20px; /* Agrega un espacio de 20px entre los botones */
-}
-
-/* Button Styles */
-button {
+    background-color: #e3f2fd; /* Fondo azul claro para las acciones */
+  }
+  
+  button {
     padding: 8px 16px;
     background-color: white;
     color: #3f51b5;
@@ -100,14 +107,111 @@ button {
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-button:hover {
+    margin: 0 8px;
+  }
+  
+  button:hover {
     background-color: #3f51b5;
     color: white;
+  }
+  
+  button[mat-button] {
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+/* Estilo de las imagenes */
+.imagenes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las imágenes horizontalmente */
+  gap: 10px;
 }
 
-button:disabled {
-    background-color: #e0e0e0;
-    color: #9e9e9e;
+.imagen-cargada {
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 2px solid #ccc; /* Borde pequeño de color gris */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 2px; /* Espacio entre la imagen y el borde */
 }
+
+.imagen-cargada:hover {
+  transform: scale(1.2);
+}
+
+/* Estilo del modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté encima de todo */
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagen-ampliada {
+  max-width: 90vw; /* Ocupa el 90% del ancho de la ventana */
+  max-height: 90vh; /* Ocupa el 90% de la altura de la ventana */
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #3f51b5;
+  border: 3px solid #3f51b5; 
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 8px; /* Espacio entre botones */
+}
+
+.close-button:hover {
+  background-color: #3f51b5;
+}
+
+.borrar-button {
+  position: absolute;
+  top: calc(16px + 40px + 8px); /* Suma la altura del botón y el espacio */
+  right: 16px;
+  color: #3f51b5;
+  border: 3px solid #3f51b5; 
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.borrar-button:hover {
+  background-color: #3f51b5;
+}
+
