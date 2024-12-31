@@ -12,8 +12,8 @@ import { Notas } from '../model/Notas';
 export class NotasService {
   public token: string | null = null;
 
-  //private apiUrl = 'https://sistemadenotas-back.onrender.com'; // URL del backend (render)
-  private apiUrl = 'http://localhost:8080'; // URL del backend
+  private apiUrl = 'https://sistemadenotas-back.onrender.com'; // URL del backend (render)
+  //private apiUrl = 'http://localhost:8080'; // URL del backend
 
   
   constructor(private http: HttpClient) { }

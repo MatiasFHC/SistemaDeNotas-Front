@@ -73,7 +73,7 @@ export class SelectedNoteComponent implements OnInit {
           // Mapear las direcciones y concatenarlas con la URL base del backend, y agregar el id
           this.imagenesArray = imagenes.map((img) => ({
             id: img.id, // Asumimos que el backend devuelve el id de la imagen
-            direccion: `http://localhost:8080${img.direccion}`
+            direccion: `https://sistemadenotas-back.onrender.com${img.direccion}`
           }));            sessionStorage.setItem('imagenes', JSON.stringify(this.imagenesArray)); // Guardar en sessionStorage
           }
         },
@@ -102,7 +102,7 @@ export class SelectedNoteComponent implements OnInit {
           (response: any) => {
             const nuevaImagen = {
               id: response.id, // Asumimos que el backend devuelve el id de la imagen
-              direccion: `http://localhost:8080${response.direccion}`
+              direccion: `https://sistemadenotas-back.onrender.com${response.direccion}`
             };
   
             // Agregar el objeto de la imagen al array
